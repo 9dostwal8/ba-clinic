@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.assign_clinic_type_subscription() FROM PUBLIC, anon, authenticated;

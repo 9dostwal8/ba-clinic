@@ -1,0 +1,283 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Clinova — clinical dashboard design system.
+ * Brand: deep teal (#138282), warm off-white surfaces, stone neutrals.
+ * Display + body: Geist.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --font-display: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-panel: var(--panel);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+
+  --color-status-planned: var(--status-planned);
+  --color-status-progress: var(--status-progress);
+  --color-status-done: var(--status-done);
+  --color-status-danger: var(--status-danger);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --shadow-panel: 0 1px 2px rgb(26 24 19 / 0.06);
+  --shadow-lift: 0 18px 40px -24px rgb(26 24 19 / 0.35);
+
+  /* Palette remap: legacy utility colors resolve to the Clinova system. */
+  --color-blue-50: #e8f4f4;
+  --color-blue-100: #d3eaea;
+  --color-blue-200: #aed8d8;
+  --color-blue-300: #7fc2c2;
+  --color-blue-400: #45a5a5;
+  --color-blue-500: #1a8f8f;
+  --color-blue-600: #138282;
+  --color-blue-700: #106b6b;
+  --color-blue-800: #0e5757;
+  --color-blue-900: #104040;
+  --color-blue-950: #0a2c2c;
+
+  --color-sky-50: #eaf2f7;
+  --color-sky-100: #d6e6ef;
+  --color-sky-200: #b1cfe0;
+  --color-sky-300: #86b4cd;
+  --color-sky-400: #5799ba;
+  --color-sky-500: #3688ad;
+  --color-sky-600: #287aa3;
+  --color-sky-700: #216485;
+  --color-sky-800: #1b506b;
+  --color-sky-900: #163e53;
+
+  --color-neutral-50: #fbfaf7;
+  --color-neutral-100: #f5f3f0;
+  --color-neutral-200: #eceae5;
+  --color-neutral-300: #dfdeda;
+  --color-neutral-400: #c3c1bb;
+  --color-neutral-500: #9b9891;
+  --color-neutral-600: #6b6961;
+  --color-neutral-700: #504e47;
+  --color-neutral-800: #2b2923;
+  --color-neutral-900: #1a1813;
+
+  --color-gray-50: #fbfaf7;
+  --color-gray-100: #f5f3f0;
+  --color-gray-200: #eceae5;
+  --color-gray-300: #dfdeda;
+  --color-gray-400: #c3c1bb;
+  --color-gray-500: #9b9891;
+  --color-gray-600: #6b6961;
+  --color-gray-700: #504e47;
+  --color-gray-800: #2b2923;
+  --color-gray-900: #1a1813;
+
+  --color-slate-50: #fbfaf7;
+  --color-slate-100: #f5f3f0;
+  --color-slate-200: #eceae5;
+  --color-slate-300: #dfdeda;
+  --color-slate-600: #6b6961;
+  --color-slate-800: #2b2923;
+  --color-slate-900: #1a1813;
+
+  --color-teal-100: #d9ecec;
+  --color-teal-600: #138282;
+  --color-teal-900: #104040;
+
+  --color-lime-100: #e0f3f3;
+  --color-lime-300: #57b6b6;
+  --color-lime-400: #138282;
+
+  --animate-rise: rise 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 12px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+:root {
+  --radius: 0.5rem;
+
+  --brand: #138282;
+  --brand-foreground: #fdfcf8;
+  --surface: #fbfaf7;
+  --ink: #1a1813;
+  --panel: #ffffff;
+
+  --background: #fbfaf7;
+  --foreground: #1a1813;
+  --card: #ffffff;
+  --card-foreground: #1a1813;
+  --popover: #ffffff;
+  --popover-foreground: #1a1813;
+
+  --primary: #138282;
+  --primary-foreground: #fdfcf8;
+  --secondary: #f3f2ed;
+  --secondary-foreground: #2b2923;
+  --muted: #f3f2ed;
+  --muted-foreground: #6b6961;
+  --accent: #e0f3f3;
+  --accent-foreground: #104040;
+  --destructive: #cc272e;
+  --destructive-foreground: #fdfcf8;
+  --success: #389560;
+  --success-foreground: #fdfcf8;
+  --warning: #d9a440;
+  --warning-foreground: #2e281e;
+
+  --border: #dfdeda;
+  --input: #dfdeda;
+  --ring: #138282;
+
+  --sidebar: #f5f3f0;
+  --sidebar-foreground: #302e28;
+  --sidebar-accent: #d9ecec;
+  --sidebar-accent-foreground: #155252;
+  --sidebar-border: #dfdeda;
+  --sidebar-primary: #006969;
+  --sidebar-primary-foreground: #fdfcf8;
+
+  --status-planned: #287aa3;
+  --status-progress: #d9a440;
+  --status-done: #389560;
+  --status-danger: #cc272e;
+
+  --chart-1: #138282;
+  --chart-2: #287aa3;
+  --chart-3: #419363;
+  --chart-4: #d6a54d;
+  --chart-5: #596475;
+}
+
+.dark {
+  --brand: #57b6b6;
+  --brand-foreground: #100f0c;
+  --surface: #100f0c;
+  --ink: #e6e4e1;
+  --panel: #181714;
+
+  --background: #100f0c;
+  --foreground: #e6e4e1;
+  --card: #181714;
+  --card-foreground: #e6e4e1;
+  --popover: #181714;
+  --popover-foreground: #e6e4e1;
+
+  --primary: #57b6b6;
+  --primary-foreground: #100f0c;
+  --secondary: #23211d;
+  --secondary-foreground: #e6e4e1;
+  --muted: #23211d;
+  --muted-foreground: #9b9891;
+  --accent: #162e2d;
+  --accent-foreground: #c8e5e4;
+  --destructive: #e24947;
+  --destructive-foreground: #faf8f5;
+  --success: #4ab074;
+  --success-foreground: #100f0c;
+  --warning: #e3ad4b;
+  --warning-foreground: #1b150b;
+
+  --border: #282622;
+  --input: #282622;
+  --ring: #57b6b6;
+
+  --sidebar: #0c0b08;
+  --sidebar-foreground: #d9d7d4;
+  --sidebar-accent: #0c2424;
+  --sidebar-accent-foreground: #cfebeb;
+  --sidebar-border: #211f1b;
+  --sidebar-primary: #57b6b6;
+  --sidebar-primary-foreground: #0c0b08;
+
+  --status-planned: #3f99c8;
+  --status-progress: #e9b452;
+  --status-done: #51b67a;
+  --status-danger: #ed5350;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+  }
+}
+
+@utility eyebrow {
+  font-size: 11px;
+  line-height: 1.2;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}

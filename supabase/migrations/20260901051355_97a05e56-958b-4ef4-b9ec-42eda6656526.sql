@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.auto_invoice_completed_plan() FROM PUBLIC, anon, authenticated;
