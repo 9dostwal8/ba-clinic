@@ -632,8 +632,8 @@ const translations = {
 };
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<'en' | 'ar' | 'ckb'>('en');
-  const [isRTL, setIsRTL] = useState(false);
+  const [language, setLanguageState] = useState<'en' | 'ar' | 'ckb'>('ckb');
+  const [isRTL, setIsRTL] = useState(true);
   const [dynamicTranslations, setDynamicTranslations] = useState<Record<string, Record<string, string>>>({});
   const [translationsLoaded, setTranslationsLoaded] = useState(false);
   const [availableLanguages, setAvailableLanguages] = useState<{ code: string; name: string; isRTL: boolean; isEnabled: boolean }[]>([]);
@@ -654,6 +654,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       setIsRTL(savedLang === 'ar' || savedLang === 'ckb');
       document.documentElement.dir = (savedLang === 'ar' || savedLang === 'ckb') ? 'rtl' : 'ltr';
       document.documentElement.lang = savedLang;
+    } else {
+      document.documentElement.dir = 'rtl';
+      document.documentElement.lang = 'ckb';
     }
     loadLanguageSettings();
     loadDynamicTranslations();

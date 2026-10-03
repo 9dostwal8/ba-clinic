@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Activity } from 'lucide-react';
-import { LanguageSwitcherHorizontal } from './LanguageSwitcherHorizontal';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 const DEMO_ACCOUNTS = [
   { group: 'Platform', label: 'Super Admin', email: 'admin@clinic.com', password: 'Admin@12345' },
@@ -46,7 +46,10 @@ export function LoginPage({ onBack }: LoginPageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-accent via-background to-secondary flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-accent via-background to-secondary flex flex-col items-center justify-center p-4 relative">
+      <div className="absolute top-4 right-4 rtl:left-4 rtl:right-auto">
+        <LanguageSwitcher />
+      </div>
       <div className="w-full max-w-md flex-grow flex items-center justify-center">
         <div className="bg-white rounded-2xl shadow-xl p-8 w-full">
           <div className="text-center mb-8">
@@ -133,10 +136,6 @@ export function LoginPage({ onBack }: LoginPageProps) {
           </div>
 
         </div>
-      </div>
-
-      <div className="w-full py-6">
-        <LanguageSwitcherHorizontal />
       </div>
     </div>
   );
